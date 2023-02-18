@@ -5,11 +5,12 @@ export const Statistics = ({title, stats}) => {
   const randomColor = () => {
     return '#' + Math.floor(Math.random() * 16777215).toString(16)
   }
-
+  const addTitle = (title) => {
+    return title ? <Title>{title}</Title> : false
+  }
   return (
-    <Section className="statistics">
-      <Title className="title">Upload stats</Title>
-
+    <Section>
+      {addTitle(title)}
       <StatList>
         {stats.map(item => (
           <li key={item.id} style={{backgroundColor: `${randomColor()}`}}>
